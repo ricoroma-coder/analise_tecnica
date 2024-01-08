@@ -7,5 +7,6 @@ class Chart1mController:
         chart = Chart1m(symbol)
         chart.collect_data()
         ai_model = RNN(chart.data)
-        print(len(chart.data))
-        print(ai_model.sequence_length)
+        ai_model.prepare()
+        ai_model.workout()
+        # ai_model.generate_signals()

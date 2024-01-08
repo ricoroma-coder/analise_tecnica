@@ -35,6 +35,7 @@ class AIModel:
 
         columns = self.selected_features + ['Daily_Return']
         data_normalized = pd.DataFrame(data_scaled, columns=columns, index=data.index)
+
         self.create_sequences(data_normalized)
 
     def create_sequences(self, data):
@@ -43,7 +44,7 @@ class AIModel:
     def set_sequences(self, data):
         x, y = data
         self.train['x'], self.test['x'], self.train['y'], self.test['y'] = train_test_split(
-            np.array(x), np.array(y), test_size=0.2, shuffle=False)
+            np.array(x), np.array(y), test_size=0.2, train_size=0.8, shuffle=False)
 
     def workout(self, adjust_params=True):
         self.model.fit(self.train['x'], self.train['y'], epochs=10, batch_size=32, validation_data=(

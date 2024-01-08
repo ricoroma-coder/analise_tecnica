@@ -14,4 +14,4 @@ class ChartModel:
         if self.period:
             self.data = yf.download(self.symbol, period=self.period, interval=self.interval)
 
-            self.data.to_csv(f'temp/csv/{self.symbol}_{self.period}.csv')  # temporary
+            self.data.to_csv(f'temp/csv/{self.symbol}_{self.interval}.csv')  # temporary

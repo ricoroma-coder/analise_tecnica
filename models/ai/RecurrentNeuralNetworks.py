@@ -1,10 +1,14 @@
+from keras.layers import Dense
 from tensorflow.python.keras import Sequential
 from tensorflow.python.keras.layers import SimpleRNN
-from tensorflow.python.layers.core import Dense
+# from tensorflow.python.layers.core import Dense
+# from tensorflow.keras.layers import Dense
 from models.ai.AIModel import AIModel
 
 
 class RNN(AIModel):  # Recurrent Neural Networks
+    sequence_length = 10
+
     def create_sequences(self, data):
         x, y = [], []
 
